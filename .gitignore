@@ -7,3 +7,4 @@ __pycache__/
 assets/external/
 talk2me/
 venv/
+.DS_Store
