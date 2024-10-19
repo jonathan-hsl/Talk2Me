@@ -19,7 +19,7 @@ def index() -> rx.Component:
             ),
             rx.link(
                 rx.button("Let's get chatting.", color_scheme="purple", cursor="pointer"),
-                href="https://reflex.dev/docs/getting-started/introduction/",
+                href="/personas",
                 is_external=True,
             ),
             spacing="5",
@@ -28,6 +28,18 @@ def index() -> rx.Component:
         ),
     )
 
+def personas():
+    return rx.container(
+        rx.color_mode.button(position="top-right"),
+        rx.vstack(
+            rx.heading("Personas:", size="9"),
+            spacing="5",
+            justify="center",
+            min_height="85vh",
+        ),
+    )
+
 
 app = rx.App()
+app.add_page(personas, route="/personas")
 app.add_page(index)
