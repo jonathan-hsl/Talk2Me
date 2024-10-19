@@ -4,11 +4,7 @@ import reflex as rx
 
 from rxconfig import config
 
-# Backend
-class State(rx.State):
-    """The app state."""
-
-    ...
+from .server import State
 
 # Frontend
 def index() -> rx.Component:
