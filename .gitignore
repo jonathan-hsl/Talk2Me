@@ -1,0 +1,9 @@
+# virtual environment
+*.db
+*.py[cod]
+.venv/
+.web
+__pycache__/
+assets/external/
+talk2me/
+venv/
