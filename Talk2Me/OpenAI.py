@@ -12,5 +12,5 @@ def openai_response(text_contents): # this function is gonna take in the txt fil
             }
         ]
     )
-
+    return completion.choices[0].message
     print(completion.choices[0].message)
