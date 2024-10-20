@@ -6,12 +6,14 @@ from Gemini import geminiResponse
 class State(rx.State):
     """The app state."""
     persona: str = ""
-
+    
     def set_persona(self, persona):
         self.persona = persona
-    
-    def run(self, persona):
+        self.run(persona)
+
+    def run(persona):
         gemini_research = geminiResponse(persona)
         perplexity_research = perplexityResponse(persona)
-        
-        return 
+
+        return
+
