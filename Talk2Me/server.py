@@ -14,8 +14,6 @@ class State(rx.State):
     def run(persona):
         gemini_research = geminiResponse(persona)
         perplexity_research = perplexityResponse(persona)
-        print(gemini_research)
-        print(perplexity_research)
 
-        return gemini_research, perplexity_research
+        return
 
