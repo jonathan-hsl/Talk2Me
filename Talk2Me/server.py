@@ -13,5 +13,5 @@ class State(rx.State):
     def run(self, persona):
         gemini_research = geminiResponse(persona)
         perplexity_research = perplexityResponse(persona)
-
+        
         return 
