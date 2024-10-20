@@ -1,8 +1,9 @@
+import typing_extensions
 import google.generativeai as genai 
 import os
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel("gemini-1.5-flash")
-class Documents(typing.TypedDict):
+class Documents(typing_extensions.TypedDict):
     doc_name: str
     contents: list[str]
 def geminiResponse(topic):

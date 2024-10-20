@@ -1,5 +1,5 @@
 import reflex as rx
-from .server import State
+from ..server import State
 
 def personas():
     

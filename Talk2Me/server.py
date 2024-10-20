@@ -3,6 +3,7 @@ from Perplexity import perplexityResponse
 from rxconfig import config
 from Gemini import geminiResponse
 from OpenAI import openai_response
+from vapi import start_assistant
 
 class State(rx.State):
     """The app state."""
@@ -18,11 +19,7 @@ class State(rx.State):
         text_contents = gemini_research + perplexity_research
         # get summaryconvert to txt
         summary = openai_response(text_contents)
+        start_assistant(persona, summary)
+
         
-        #self.convert_txt(summary)
-           
-        return 
-    
-    def convert_txt(text: str):
-        # save summary to file
-        return 
+
