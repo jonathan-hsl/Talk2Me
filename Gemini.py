@@ -1,6 +1,6 @@
 import google.generativeai as genai 
 import os
-genai.configure(api_key=os.environ["API_KEY"])
+genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel("gemini-1.5-flash")
 class Documents(typing.TypedDict):
     doc_name: str
