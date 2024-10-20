@@ -18,8 +18,9 @@ class State(rx.State):
         text_contents = gemini_research + perplexity_research
         # get summaryconvert to txt
         summary = openai_response(text_contents)
-        self.convert_txt(summary)
-            
+        
+        #self.convert_txt(summary)
+           
         return 
     
     def convert_txt(text: str):
