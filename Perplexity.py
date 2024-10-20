@@ -1,31 +1,31 @@
 from openai import OpenAI
+import os
 
-YOUR_API_KEY = "PERPLEXITY_API_KEY"
+client = OpenAI(
+    api_key=os.environ.get("PERPLEXITY_API_KEY"),
+    base_url="https://api.perplexity.ai"
+)
 
-client = OpenAI(api_key=YOUR_API_KEY, base_url="https://api.perplexity.ai")
-
-# chat completion without streaming
 def perplexityResponse(topic):
     messages = [
-    {
-        "role": "system",
-        "content": (
-            f"Help me research {topic}. Give me some links to reputable websites that provide information on {topic}", # HERE, WE HAVE TO PASS IN SOME STANDARDIZED INPUT BASED ON WHATEVER THE USER SELECTS FROM THE DROPDOWN"
-        ),
-    },
-    {
-        "role": "user",
-        "content": (
-            "How many stars are in the universe?" # THIS HERE IS GOING TO BE THE INPUT TOPIC BASED ON WHATEVER THE USER SELECTS ON THE FRONT END DROPDOWN
-        ),
-    },
-]
-    response = client.chat.completions.create(
-        model="llama-3-sonar-large-32k-online",
-        messages=messages,
-    )
-    return response
-    print(response)
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that provides information and links to reputable websites."
+        },
+        {
+            "role": "user",
+            "content": f"Help me research {topic}. Give me some links to reputable websites that provide information on this topic."
+        }
+    ]
+    try:
+        response = client.chat.completions.create(
+            model="llama-3.1-sonar-huge-128k-online",
+            messages=messages,
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        print(f"Error in perplexityResponse: {str(e)}")
+        return None
 
 # chat completion with streaming
 '''response_stream = client.chat.completions.create(

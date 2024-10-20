@@ -7,7 +7,7 @@ import simpleaudio as sa
 import wave
 
 def getSummary(text):
-    system_content = "You are a gourmet. Be descriptive and helpful."
+    system_content = "You are a domain expert. Be descriptive and helpful. Use the following links to learn more about the topic. Provide a detailed summary of the topic."
     user_content = text  # Use the text provided as the user's input
 
     # Set the API key and base URL for Hyperbolic

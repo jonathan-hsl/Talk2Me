@@ -1,3 +1,4 @@
+from Hyperbolic import getSummary
 import reflex as rx
 from Perplexity import perplexityResponse
 from rxconfig import config
@@ -17,8 +18,10 @@ class State(rx.State):
         gemini_research = geminiResponse(persona)
         perplexity_research = perplexityResponse(persona)
         text_contents = gemini_research + perplexity_research
-        # get summaryconvert to txt
+        print("text_contents:", text_contents)
+        #summary = getSummary(text_contents)
         summary = openai_response(text_contents)
+        print("summary:", summary)
         start_assistant(persona, summary)
 
         
