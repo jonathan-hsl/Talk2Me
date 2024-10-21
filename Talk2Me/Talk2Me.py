@@ -1,5 +1,6 @@
 import reflex as rx
 from .components.personas import personas
+from .components.interviewer import interviewer
 
 from rxconfig import config
 
@@ -76,4 +77,5 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(personas, route="/personas")
+app.add_page(interviewer, route="/interviewer")
 app.add_page(index)

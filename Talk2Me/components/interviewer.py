@@ -1,59 +1,6 @@
 import reflex as rx
 from ..server import State
 
-# def personas():
-    
-#     return rx.container(
-#         rx.color_mode.button(position="top-right"),
-#         rx.hstack(
-#             rx.grid(
-#                 # Box 1: Interviewer
-#                 rx.button(
-#                     rx.heading("Interviewer", size="lg", color="white"),
-#                     border="0.5px solid white",  # Thinner white outline
-#                     border_radius="10px",  # Rounded corners
-#                     padding="20px",
-#                     text_align="center",
-#                     width="100%",  # Ensure equal width
-#                     height="200px",  # Set fixed height
-#                     on_click=State.set_persona("interviewer"),
-#                 ),
-#                 # Box 2: Date
-#                 rx.button(
-#                     rx.heading("Date", size="lg", color="white"),
-#                     border="0.5px solid white",  # Thinner white outline
-#                     border_radius="10px",  # Rounded corners
-#                     padding="20px",
-#                     text_align="center",
-#                     width="100%",  # Ensure equal width
-#                     height="200px",  # Set fixed height
-#                     on_click=State.set_persona("date"),
-#                 ),
-#                 # Box 3: Stranger
-#                 rx.button(
-#                     rx.heading("Stranger", size="lg", color="white"),
-#                     border="0.5px solid white",  # Thinner white outline
-#                     border_radius="10px",  # Rounded corners
-#                     padding="20px",
-#                     text_align="center",
-#                     width="100%",  # Ensure equal width
-#                     height="200px",  # Set fixed height
-#                     on_click=State.set_persona("stranger"),
-#                 ),
-#                 template_columns="repeat(3, 1fr)",  # Ensure three equal columns
-#                 gap="20px",  # Spacing between boxes
-#                 width="100%",  # Make grid responsive
-#                 margin="auto",
-#                 justify_items="center",
-#                 align_items="center",  # Vertically align items
-#                 columns='3'
-#             ),
-#             spacing="5",
-#             justify="center",
-#             min_height="85vh",
-#         ),
-#     )
-
 def create_styled_text(text_color, font_size, content):
     return rx.text(
         content,
@@ -77,7 +24,7 @@ def create_icon(alt_text, icon_name):
 def create_welcome_header():
     return rx.box(
         rx.heading(
-            "Talk to a...",
+            "Talking to an... interviewer.",
             font_weight="700",
             margin_bottom="1rem",
             font_size="2.25rem",
@@ -88,17 +35,12 @@ def create_welcome_header():
         create_styled_text(
             text_color="#4B5563",
             font_size="1.25rem",
-            content="Choose a relevant persona to begin the social experience.",
+            content="Start speaking with the interview agent!",
         ),
         margin_bottom="3rem",
         text_align="center",
     )
 
-def start_interview():
-    print("Starting interview")
-    State.set_persona("interviewer")
-    rx.redirect("/interviewer")
-   
 
 def create_get_started_button():
     return rx.el.button(
@@ -177,9 +119,6 @@ def create_main_content():
     return rx.box(
         create_welcome_header(),
         rx.flex(
-            create_get_started_button(),
-            create_learn_more_button(),
-            create_contact_us_button(),
             display="flex",
             flex_direction=rx.breakpoints(
                 {"0px": "column", "768px": "row"}
@@ -191,16 +130,11 @@ def create_main_content():
         ),
         rx.box(
             rx.text(
-                "Join thousands of satisfied users and transform the way you talk",
+                "Say 'done' at any time to end the interview.",
                 margin_bottom="1rem",
                 color="#374151",
                 font_size="1.125rem",
                 line_height="1.75rem",
-            ),
-            create_styled_text(
-                text_color="#374151",
-                font_size="1.125rem",
-                content="Start your journey today and experience the difference!",
             ),
             text_align="center",
         ),
@@ -223,7 +157,7 @@ def create_main_content():
     )
 
 
-def personas():
+def interviewer():
     return rx.fragment(
         rx.el.link(
             href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css",
